@@ -9,6 +9,12 @@ function Search() {
   // Current Query (in search)
   const [curQuery, setCurQuery] = useState<string | undefined>(contextQuery);
   const queryClient = useQueryClient();
+  const [normalizedOutput, setNormalizedOutput] = useState('');
+
+  useEffect(() => {
+    const normalizedString = curQuery?.replace(/\s+/g, ' ').trim();
+    setNormalizedOutput(normalizedString);
+  }, [curQuery]);
 
   // Every 1000ms clear empty queries in cache, changes every time we type
   useEffect(() => {
@@ -37,21 +43,21 @@ function Search() {
 
   // Adds delay in order to prevent spam in API, and makes search history work correctly
   useEffect(() => {
-    if (queryClient.getQueryData(["search", `query-${curQuery}`])) {
+    if (queryClient.getQueryData(["search", `query-${normalizedOutput}`])) {
     // If something that already exists in the query, it returns the result without artificial delay.
-      return dispatch({ type: "updateQuery", payload: String(curQuery?.trim()) as string });
+      return dispatch({ type: "updateQuery", payload: String(normalizedOutput) as string });
     }
 
     // The string changes visibly instantly, but it updates the context API and content only after 550ms
     const timeoutId: number = setTimeout(() => {
-      dispatch({ type: "updateQuery", payload: curQuery?.trim() as string });
-      if (curQuery !== "") dispatch({ type: "updateHistory", payload: String(curQuery?.trim()) as string });
+      dispatch({ type: "updateQuery", payload: normalizedOutput as string });
+      if (normalizedOutput !== "") dispatch({ type: "updateHistory", payload: String(normalizedOutput) as string });
     }, 550);
 
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [curQuery, dispatch, queryClient]);
+  }, [normalizedOutput, dispatch, queryClient]);
 
   // Every time we click the navigation button, it resets the current query
   function handleClick() {
