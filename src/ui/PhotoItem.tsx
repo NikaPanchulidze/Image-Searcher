@@ -30,7 +30,7 @@ const PhotoItem: React.FC<PhotoItemProps> = ({ photo }) => {
   return (
     <>
       <div className="img-container">
-        <img onClick={handleClick} className="img" src={photo.urls.small} alt="popular photos" />
+        <img onClick={handleClick} className="img" src={photo.urls.small} alt={photo.alt_description} />
       </div>
       {isOpen && <Modal onClose={() => setIsOpen(false)}><PhotoDetails isLoading={isLoading} photo={photo} photoDetails={photoDetails} /></Modal>}
     </>

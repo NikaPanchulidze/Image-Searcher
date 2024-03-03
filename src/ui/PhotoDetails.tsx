@@ -15,7 +15,7 @@ const PhotoDetails: React.FC<PhotoDetailsProps> = ({ photo, photoDetails, isLoad
 
   return (
     <div className="details-container">
-      <img className="modal-img" src={photo.urls.regular} alt="full photo" />
+      <img className="modal-img" src={photo.urls.full} alt={photo.alt_description} />
       <div className="text-container">
         <p>Likes: {isLoading ? "Loading..." : <span>{formatNumber(photo?.likes)}</span>}</p>
         {photoDetails && <p>Views: {isLoading ? "Loading..." : <span>{formatNumber(photoDetails?.views?.total)}</span>}</p>}

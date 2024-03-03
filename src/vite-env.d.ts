@@ -5,6 +5,7 @@ export interface ImportMetaEnv {
 }
 
 export interface Photo {
+  alt_description: string,
   id: string;
   created_at: string;
   updated_at: string;
@@ -65,6 +66,7 @@ export interface Photo {
 }
 
 export interface specificPhoto {
+  alt_description: string,
   id: string;
   created_at: string;
   updated_at: string;
