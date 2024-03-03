@@ -40,7 +40,7 @@ export async function getPhotos(query: string, curPage: number = 1): Promise<spe
       params: {
         page: curPage,
         per_page: 20,
-        query: query,
+        query: query.split(" ").join("+"),
       },
       headers: {
         Authorization: `Client-ID ${import.meta.env.VITE_API_KEY}`,

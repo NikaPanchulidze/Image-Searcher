@@ -39,13 +39,13 @@ function Search() {
   useEffect(() => {
     if (queryClient.getQueryData(["search", `query-${curQuery}`])) {
     // If something that already exists in the query, it returns the result without artificial delay.
-      return dispatch({ type: "updateQuery", payload: String(curQuery) as string });
+      return dispatch({ type: "updateQuery", payload: String(curQuery?.trim()) as string });
     }
 
     // The string changes visibly instantly, but it updates the context API and content only after 550ms
     const timeoutId: number = setTimeout(() => {
-      dispatch({ type: "updateQuery", payload: curQuery as string });
-      if (curQuery !== "") dispatch({ type: "updateHistory", payload: String(curQuery) as string });
+      dispatch({ type: "updateQuery", payload: curQuery?.trim() as string });
+      if (curQuery !== "") dispatch({ type: "updateHistory", payload: String(curQuery?.trim()) as string });
     }, 550);
 
     return () => {
