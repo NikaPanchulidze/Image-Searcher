@@ -23,6 +23,14 @@ function SearchedQueries() {
 
   const uniqueKeys = [...new Set(matchingKeys)];
 
+  const mappedAndFilteredKeys = uniqueKeys.map(key => {
+    if (key.trim() === "") {
+      return null;  // Exclude elements with empty or whitespace-only values
+    }
+    return key;
+  }).filter(Boolean);  // Remove null values from the result
+  
+
   return (
     <>
       <div className="section-history">
@@ -32,9 +40,9 @@ function SearchedQueries() {
         </NavLink>
       </div>
       {/* Renders searches titles */}
-      {uniqueKeys.length === 0 && <h2 className="empty">Your history is empty. Search some photos!</h2>}
+      {mappedAndFilteredKeys.length === 0 && <h2 className="empty">Your history is empty. Search some photos!</h2>}
       <div className="history-items">
-        {uniqueKeys.map((searched, i) => (
+        {mappedAndFilteredKeys.map((searched, i) => (
           <button
             key={i + 1000 / 3}
             onClick={(e) => handleClick(e)}
