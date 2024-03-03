@@ -28,7 +28,6 @@ This technical task is created with Vite for Sweeft.
 3. **Start project in a Web Browser:**
    ```
    npm run dev
-
 ## Project Structure
 
 - **`public/`**: Contains all SVGs.
