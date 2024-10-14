@@ -1,4 +1,4 @@
-# Images' Searcher
+# Image Searcher
 
 Search for any image you want!
 
