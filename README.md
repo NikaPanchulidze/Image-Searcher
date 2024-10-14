@@ -1,6 +1,6 @@
-# Sweeft
+# Images' Searcher
 
-This technical task is created with Vite for Sweeft.
+Search for any image you want!
 
 ## Tech Stack
 
