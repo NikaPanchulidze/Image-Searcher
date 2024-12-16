@@ -21,7 +21,7 @@ Search for any image you want!
    git clone https://github.com/NikaPanchulidze/Image-Searcher
 2. **Navigate to the Project Directory:**
    ```
-   cd Sweeft
+   cd Image-Searcher
 3. **Download necessary libraries:**
    ```
    npm i
