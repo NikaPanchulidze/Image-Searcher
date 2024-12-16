@@ -18,7 +18,7 @@ Search for any image you want!
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/NikaPanchulidze/Sweeft
+   git clone https://github.com/NikaPanchulidze/Image-Searcher
 2. **Navigate to the Project Directory:**
    ```
    cd Sweeft
