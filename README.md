@@ -25,7 +25,7 @@ Search for any image you want!
 3. **Download necessary libraries:**
    ```
    npm i
-3. **Start project in a Web Browser:**
+4. **Start project in a Web Browser:**
    ```
    npm run dev
 ## Project Structure
